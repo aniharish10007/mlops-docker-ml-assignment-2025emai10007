@@ -34,6 +34,9 @@ from sklearn.tree import DecisionTreeClassifier
 DT1 = DecisionTreeClassifier(criterion = 'gini' , max_depth = 5 , min_samples_split = 2, random_state = 100)
 DT1.fit(X_train,y_train)
 ypred = DT1.predict(X_test)
-from sklearn.metrics import confusion_matrix , classification_report
-print("confusion matrix: \n",confusion_matrix(y_test,ypred),end="\n")
-print("classification report:\n",classification_report(y_test,ypred))
+y_pred_prob = model.predict_proba(X_test)[:, 1]
+auc_score = roc_auc_score(y_test, y_pred_prob)
+print(f"AUC Score: {auc_score:.3f}")
+precision = precision_score(y_test, y_pred)
+print(f"Precision Score: {precision:.3f}")
+
