@@ -1,0 +1,21 @@
+name: ML Experiment Runner
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build the Docker image
+        run: docker build -t ml_experiment .
+
+      - name: Run the ML Experiment
+        run: docker run ml_experiment
