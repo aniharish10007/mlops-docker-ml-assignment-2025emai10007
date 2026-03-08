@@ -33,7 +33,7 @@ from sklearn.tree import DecisionTreeClassifier
 DT1 = DecisionTreeClassifier(criterion = 'gini' , max_depth = 5 , min_samples_split = 2, random_state = 100)
 DT1.fit(X_train,y_train)
 ypred = DT1.predict(X_test)
-y_pred_prob = model.predict_proba(X_test)[:, 1]
+y_pred_prob = DT1.predict_proba(X_test)[:, 1]
 auc_score = roc_auc_score(y_test, y_pred_prob)
 print(f"AUC Score: {auc_score:.3f}")
 precision = precision_score(y_test, y_pred)
