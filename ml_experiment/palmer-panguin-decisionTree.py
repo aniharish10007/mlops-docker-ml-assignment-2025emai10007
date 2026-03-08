@@ -37,6 +37,6 @@ ypred = DT1.predict(X_test)
 y_pred_prob = DT1.predict_proba(X_test)[:, 1]
 auc_score = roc_auc_score(y_test, y_pred_prob)
 print(f"AUC Score: {auc_score:.3f}")
-precision = precision_score(y_test, y_pred)
+precision = precision_score(y_test, ypred)
 print(f"Precision Score: {precision:.3f}")
 
