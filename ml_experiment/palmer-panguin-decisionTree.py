@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from sklearn.metrics import precision_score, roc_auc_score
 from palmerpenguins import load_penguins
 penguins = load_penguins()
 penguins.head()
